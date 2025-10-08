@@ -1,3 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.font-righteous {
+  font-family: 'Righteous', sans-serif;
+}
+
+@import "tailwindcss";
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+* {
+  cursor: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+.animate-star {
+  animation: float 4s ease-in-out infinite;
+}
+
+
+/* .animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}  */
+
+
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.animate-fadeUp.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-fadeUp.delay-400 {
+  animation-delay: 0.4s;
+}
+
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.blink {
+  animation: blink 1.5s infinite;
+}
+
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -39,4 +112,233 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+
+
+
+
+
+@keyframes flip-diagonal {
+  0% {
+    transform: rotateX(90deg) rotateY(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateX(180deg) rotateY(180deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+    opacity: 1;
+  }
+}
+
+.flip-text span {
+  display: inline-block;
+  animation: flip-diagonal 1s forwards;
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+/* Fade Up Animation */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.animate-fadeUp.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animate-fadeUp.delay-400 {
+  animation-delay: 0.4s;
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+
+
+
+
+@keyframes leftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-leftToRight {
+  display: flex;
+  animation: leftToRight 20s linear infinite;
+}
+
+.animate-rightToLeft {
+  display: flex;
+  animation: rightToLeft 20s linear infinite;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------- */
+/* Shimmering light left → right */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  position: absolute;
+  animation: shimmer 3s infinite linear;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Pulsing neon/glow ring */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.25),
+                0 0 80px rgba(0, 255, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(0, 255, 255, 0.45),
+                0 0 100px rgba(0, 255, 255, 0.25);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.25),
+                0 0 80px rgba(0, 255, 255, 0.15);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s infinite ease-in-out;
+}
+
+/* Optional: neon ring rotation for 3D aura effect */
+@keyframes rotate-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-rotate-ring {
+  animation: rotate-ring 20s linear infinite;
+}
+
+
+
+
+
+
+
+
+
+/* =============================== */
+/* 🌊 Interactive Water Ripple CSS */
+/* =============================== */
+
+@keyframes ripple {
+  0% {
+    transform: scale(1) translateY(0);
+    filter: blur(0px) brightness(1);
+  }
+  25% {
+    transform: scale(1.02) translateY(-2px);
+    filter: blur(1px) brightness(1.05);
+  }
+  50% {
+    transform: scale(0.99) translateY(2px);
+    filter: blur(0.5px) brightness(0.95);
+  }
+  75% {
+    transform: scale(1.01) translateY(-1px);
+    filter: blur(1px) brightness(1.02);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    filter: blur(0px) brightness(1);
+  }
+}
+
+.water-effect {
+  transition: all 0.7s ease-in-out;
+}
+
+.group:hover .water-effect {
+  animation: ripple 1.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Ripple overlay follows cursor */
+.ripple-overlay {
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    transparent 70%
+  );
+  mix-blend-mode: overlay;
+  transition: opacity 0.4s ease;
+}
+
+/* Optional rotating F */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 4s linear infinite;
 }
