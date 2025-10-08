@@ -48,7 +48,7 @@ export default function Navbar() {
                 className="w-4 h-4 rounded-full bg-yellow-500 ml-2 animate-pulse"
                 style={{ backgroundColor: "#FFD700" }}
               ></span>
-              <span className="flex-1 text-center">Let's Begin</span>
+              <span className="flex-1 text-center">Let&apos;s Begin</span>
             </Button>
           </div>
         </div>
